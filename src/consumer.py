@@ -21,7 +21,7 @@ PG_CONFIG = dict(
 )
 
 INSERT_SQL = """
-      INSERT INTO stock_prices_v2 (ticker, price, fetched_at)
+      INSERT INTO fact_stock_price (ticker, price, fetched_at)
       VALUES (%(ticker)s, %(price)s, %(fetched_at)s)
 """
 
