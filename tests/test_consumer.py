@@ -1,11 +1,11 @@
-from consumer import safe_json_deserializer
+from consumer import parse_message
 
 
 def test_valid_json_is_parsed():
-    result = safe_json_deserializer(b'{"ticker": "AAPL", "price": 190.5}')
+    result = parse_message(b'{"ticker": "AAPL", "price": 190.5}')
     assert result == {"ticker": "AAPL", "price": 190.5}
 
 
 def test_invalid_json_returns_none():
-    result = safe_json_deserializer(b"hello kafka")
+    result = parse_message(b"hello kafka")
     assert result is None
